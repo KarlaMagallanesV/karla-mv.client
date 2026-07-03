@@ -1,0 +1,25 @@
+# kubectl apply -f ms-clientes-deployment.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-clientes-deployment
+  namespace: ms-clientes-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-clientes
+  template:
+    metadata:
+      labels:
+        app: ms-clientes
+    spec:
+      containers:
+      - name: ms-clientes-container
+        image: anyeli/ms-clientes:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8081
+        envFrom:
+        - secretRef:
+            name: ms-clientes-secret           # carga DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD, DB_SSL_MODE, SERVER_PORT

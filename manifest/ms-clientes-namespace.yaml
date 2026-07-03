@@ -1,0 +1,6 @@
+# kubectl create namespace ms-clientes-namespace (COMANDO)
+# kubectl apply -f ms-clientes-namespace.yml (yml)
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ms-clientes-namespace

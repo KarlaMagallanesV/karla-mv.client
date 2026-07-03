@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ms-clientes
+  r2dbc:
+    url: r2dbc:postgresql://${DB_HOST:ep-proud-frost-at2hkg9m-pooler.c-9.us-east-1.aws.neon.tech}/${DB_NAME:clientes}?sslmode=${DB_SSL_MODE:require}
+    username: ${DB_USER:neondb_owner}
+    password: ${DB_PASSWORD:npg_JVbPl1cSs4xA}
+    pool:
+      enabled: true
+      initial-size: 1
+      max-size: 5
+      max-idle-time: 10m
+      validation-query: SELECT 1
