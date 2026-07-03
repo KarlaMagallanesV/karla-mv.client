@@ -19,7 +19,7 @@ spec:
         image: anyeli/ms-clientes:latest
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8081
+        - containerPort: 8080
         envFrom:
         - secretRef:
             name: ms-clientes-secret           # carga DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD, DB_SSL_MODE, SERVER_PORT
